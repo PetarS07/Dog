@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1>Welcome to Maxwell's World</h1>
+            <p class="lead">Meet our beloved Golden Retriever</p>
+            <p>Maxwell is a 3-year-old purebred Golden Retriever who brings joy to everyone he meets with his friendly personality and loving nature.</p>
+
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="alert alert-warning mt-4">
+                    <h4><i class="fas fa-lock"></i> More Information Available</h4>
+                    <p>Log in to access detailed information about Maxwell's daily routine, favorite activities, and more!</p>
+                    <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Login to View More
+                    </a>
+                </div>
+            }
+            else
+            {
+                <a asp-controller="Home" asp-action="MoreInfo" class="btn btn-success mt-3">
+                    <i class="fas fa-info-circle"></i> Learn More About Maxwell
+                </a>
+            }
+        </div>
+
+        <div class="col-md-6">
+            <img src="https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/golden-retriever-dog-breed-info.jpeg"
+                 alt="Golden Retriever" class="img-fluid rounded shadow">
+        </div>
+    </div>
+</div>
