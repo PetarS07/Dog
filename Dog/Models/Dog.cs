@@ -24,6 +24,6 @@ namespace Dog.Models
         public string FavoriteFood { get; set; }
         public string FavoriteToy { get; set; }
         public string SpecialSkills { get; set; }
-        public string ImageUrl { get; set; } = "https://placedog.net/800/600";
+        public string ImageUrl { get; set; } = "https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/golden-retriever-dog-breed-info.jpeg";
     }
 }

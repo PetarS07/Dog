@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Dog>  <!-- Указваме, че моделът е колекция от кучета -->
+
+@{
     ViewData["Title"] = "Home";
 }
 
@@ -21,9 +23,12 @@
             }
             else
             {
-                <a asp-controller="Home" asp-action="MoreInfo" class="btn btn-success mt-3">
-                    <i class="fas fa-info-circle"></i> Learn More About Maxwell
-                </a>
+                @foreach (var dog in Model)
+                {
+                    <a asp-controller="Home" asp-action="MoreInfo" asp-route-id="@dog.Id" class="btn btn-success mt-3">
+                        <i class="fas fa-info-circle"></i> Learn More About @dog.Name
+                    </a>
+                }
             }
         </div>
 
