@@ -1,56 +1,37 @@
 ﻿@model Dog
 
 @{
-    ViewData["Title"] = $"More Info About {Model.Name}";
+    ViewData["Title"] = $"About {Model.Name}";
 }
 
 <div class="container my-5">
     <div class="row">
         <div class="col-md-6">
-            <h1>All About @Model.Name</h1>
-            <div class="card mb-4">
+            <h1>@Model.Name's Profile</h1>
+            <img src="https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/golden-retriever-dog-breed-info.jpeg" class="img-fluid rounded mb-4" alt="@Model.Name">
+        </div>
+        <div class="col-md-6">
+            <div class="card">
                 <div class="card-body">
-                    <h3><i class="fas fa-paw text-warning"></i> @Model.Name's Details</h3>
+                    <h3>Details</h3>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><strong>Breed:</strong> @Model.Breed</li>
-                        <li class="list-group-item"><strong>Age:</strong> @Model.Age years</li>
+                        <li class="list-group-item"><strong>Age:</strong> @Model.Age</li>
                         <li class="list-group-item"><strong>Favorite Food:</strong> @Model.FavoriteFood</li>
                         <li class="list-group-item"><strong>Favorite Toy:</strong> @Model.FavoriteToy</li>
                     </ul>
                 </div>
             </div>
         </div>
-
-        <div class="col-md-6">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3><i class="fas fa-heart text-danger"></i> Personality</h3>
-                    <p>@Model.MainDescription</p>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3><i class="fas fa-bone text-warning"></i> Favorite Things</h3>
-                    <ul>
-                        <li>@Model.FavoriteFood</li>
-                        <li>@Model.FavoriteToy</li>
-                        <li>@Model.SpecialSkills</li>
-                    </ul>
-                </div>
-            </div>
-
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h3><i class="fas fa-calendar-check text-primary"></i> Daily Routine</h3>
-                    <ol>
-                        <li>7:00 AM - Morning walk</li>
-                        <li>8:00 AM - Breakfast</li>
-                        <li>10:00 AM - Playtime</li>
-                        <li>1:00 PM - Afternoon nap</li>
-                        <li>5:00 PM - Evening walk</li>
-                        <li>7:00 PM - Dinner</li>
-                    </ol>
+                    <h3>About Me</h3>
+                    <p>@Model.DetailedDescription</p>
+                    <h4>Special Skills</h4>
+                    <p>@Model.SpecialSkills</p>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Dog>  <!-- Указваме, че моделът е колекция от кучета -->
+﻿@model IEnumerable<Dog>
 
 @{
     ViewData["Title"] = "Home";
@@ -8,33 +8,45 @@
     <div class="row align-items-center">
         <div class="col-md-6">
             <h1>Welcome to Maxwell's World</h1>
-            <p class="lead">Meet our beloved Golden Retriever</p>
-            <p>Maxwell is a 3-year-old purebred Golden Retriever who brings joy to everyone he meets with his friendly personality and loving nature.</p>
+            @if (Model != null && Model.Any())
+            {
+                <div class="mb-4">
+                    @foreach (var dog in Model)
+                    {
+                        <div class="mb-3">
+                            <h3>Meet @dog.Name</h3>
+                            <p>@dog.MainDescription</p>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a asp-action="MoreInfo" asp-route-id="@dog.Id" class="btn btn-primary">
+                                    More About @dog.Name 
+                                </a>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    No dogs available
+                </div>
+            }
 
             @if (!User.Identity.IsAuthenticated)
             {
                 <div class="alert alert-warning mt-4">
                     <h4><i class="fas fa-lock"></i> More Information Available</h4>
-                    <p>Log in to access detailed information about Maxwell's daily routine, favorite activities, and more!</p>
+                    <p>Log in to access detailed information about our dogs!</p>
                     <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary">
-                        <i class="fas fa-sign-in-alt"></i> Login to View More
+                        <i class="fas fa-sign-in-alt"></i> Login
                     </a>
                 </div>
             }
-            else
-            {
-                @foreach (var dog in Model)
-                {
-                    <a asp-controller="Home" asp-action="MoreInfo" asp-route-id="@dog.Id" class="btn btn-success mt-3">
-                        <i class="fas fa-info-circle"></i> Learn More About @dog.Name
-                    </a>
-                }
-            }
         </div>
-
         <div class="col-md-6">
             <img src="https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/golden-retriever-dog-breed-info.jpeg"
-                 alt="Golden Retriever" class="img-fluid rounded shadow">
+                 class="img-fluid rounded shadow">
         </div>
     </div>
 </div>

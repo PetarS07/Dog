@@ -2,7 +2,7 @@
 
 namespace Dog.Models
 {
-    public class DogProfile
+    public class Dog
     {
         [Key]
         public int Id { get; set; }
@@ -24,6 +24,5 @@ namespace Dog.Models
         public string FavoriteFood { get; set; }
         public string FavoriteToy { get; set; }
         public string SpecialSkills { get; set; }
-        public string ImageUrl { get; set; } = "https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/golden-retriever-dog-breed-info.jpeg";
     }
 }

@@ -10,6 +10,6 @@ namespace Dog.Data
             : base(options)
         {
         }
-        public DbSet<DogProfile> Dogs { get; set; }
+        public DbSet<Models.Dog> Dogs { get; set; }
     }
 }
